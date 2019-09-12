@@ -22,7 +22,7 @@ namespace Laboratoire1.Controllers
 
         public IActionResult List()
         {
-            return View();
+            return View(Evaluations.ListeEvaluations);
         }
 
         [HttpGet]

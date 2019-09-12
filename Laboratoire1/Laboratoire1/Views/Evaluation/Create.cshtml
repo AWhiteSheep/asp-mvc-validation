@@ -1,0 +1,84 @@
+﻿@model Laboratoire1.Models.Evaluation;
+
+@{
+    ViewData["Title"] = "Create";
+    Dictionary<string, char> selectListItems = new Dictionary<string, char>(){
+        { "Homme", 'H' },
+        { "Femme", 'F' }
+    };
+}
+
+<h2>Create</h2>
+
+<h4>Evaluation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="num_evaluation" class="control-label"></label>
+                <input asp-for="num_evaluation" class="form-control" />
+                <span asp-validation-for="num_evaluation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nom_eleve" class="control-label"></label>
+                <input asp-for="nom_eleve" class="form-control" />
+                <span asp-validation-for="nom_eleve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prenom_eleve" class="control-label"></label>
+                <input asp-for="prenom_eleve" class="form-control" />
+                <span asp-validation-for="prenom_eleve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telephone_eleve" class="control-label"></label>
+                <input asp-for="telephone_eleve" class="form-control" />
+                <span asp-validation-for="telephone_eleve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="courriel_eleve" class="control-label"></label>
+                <input asp-for="courriel_eleve" class="form-control" />
+                <span asp-validation-for="courriel_eleve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="genre_eleve" class="control-label"></label><br>
+                @foreach (var sex in selectListItems)
+                {
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" asp-for="genre_eleve" value="@sex.Value" />
+                        <label class="form-check-label" asp-for="courriel_eleve">@sex.Key</label>
+                    </div>
+                }
+                <br><span asp-validation-for="genre_eleve" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="note_evaluation" class="control-label"></label>
+                <input asp-for="note_evaluation" class="form-control" />
+                <span asp-validation-for="note_evaluation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="date_evaluation" class="control-label"></label>
+                <input asp-for="date_evaluation" class="form-control" />
+                <span asp-validation-for="date_evaluation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="commentaires_evaluation" class="control-label"></label>
+                <input asp-for="commentaires_evaluation" class="form-control" />
+                <span asp-validation-for="commentaires_evaluation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts 
+{
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+}
