@@ -1,6 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
+    height:100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("../images/banner_jpeg.jpg");
@@ -82,4 +83,102 @@ body {
 
 .material-icons.clickable:hover {
     color: blue #007bff;
+}
+
+/* Le shadow en dessous du me-card */
+.me-card-shadow {
+    display: block;
+    margin: 0;
+    position: relative;
+    width: 250px;
+    height: 75px;
+    margin: auto;
+    background-color: #FC913A;
+}
+
+.me-card {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    width: 250px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #173F5F;
+}
+
+.material-icons {
+    vertical-align: bottom;
+    display: block;
+    margin: 0;
+}
+
+.accueil-message > h6 {
+    margin: auto;
+    width: 360px;
+    padding: 75px 0 75px 0;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+.navbar {
+    height: 60px;
+    background-color: #173f5f;
+}
+
+footer {
+    text-align: right;
+    font-family: serif;
+    color: white;
+    font-size: smaller;
+}
+.table {
+    display: block;
+    margin: 0;
+}
+footer > hr {
+    border-top: .5px solid white;
+}
+.list-container {
+    margin-top:45pt;
+    margin-bottom:45pt;
+    background-color:white;
+    border-radius:5pt;
+}
+.list-page-widget {
+    position:absolute;
+    bottom: 33pt;
+    left:30pt;
+    background-color: rgba(252,145,58,.62);
+    border-bottom: 1px solid rgb(252,145,58);
+}
+.list-page-widget:hover {
+    background-color: rgba(252,145,58,.72);
+}
+.list-page-widget > a {
+    text-decoration:none;
+    color: black;
+}
+.list-message {
+    display:flex;
+    padding: 75pt 0;
+}
+.list-message-container {
+    margin:auto;
+}
+.list-message-container-highlighter > h6 {
+    position: absolute;
+    right: 8pt;
+    display: flex;
+    font-size: 18px;
+    color: black;
+}
+.list-message-container-highlighter {
+    width: 230pt;
+    height: 10pt;
+    position: relative;
+    background-color: rgba(252,145,58,.72);
 }
