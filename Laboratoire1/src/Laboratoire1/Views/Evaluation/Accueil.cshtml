@@ -2,25 +2,38 @@
 @{
     //https://github.com/material-components/material-components-web/tree/master/packages/mdc-elevation
     ViewData["Title"] = "Accueil";
+
+    BiglinkContext bglinkEnregistrer = new BiglinkContext
+    {
+        icon = "note_add",
+        text = "Enregistrez les évaluations des élèves."
+    };
+    BiglinkContext bglinkList = new BiglinkContext
+    {
+        icon = "note_add",
+        text = "Voir le progrès de vos élèves!"
+    };
+    BiglinkContext bglinkRejoindre = new BiglinkContext
+    {
+        icon = "note_add",
+        text = "Nous rejoindre."
+    };
+
 }
 
-<h1 class="container">
-    Accueil
-</h1>
 <div class="container">
-    <h6>Voici, l'application pour entrez les évaluations des étudiants.</h6>
+    <div class="accueil-message">
+        <h6>Bienvenue sur l'intranet exclusivement conçu pour les professeurs.</h6>
+    </div>
     <div class="row justify-content-center text-center">
-        <div class="col-2">
-            <div class="row mdc-elevation--z1 mdc-ripple-surface me-card">
-                <i class="material-icons md-24 clickable">note_add</i>
-                <a href="#">Nouvelle évaluation</a>
-            </div>
+        <div class="col">
+            <Biglink controller="Evaluation" action="Create" info="bglinkEnregistrer" />
         </div>
-        <div class="col-2">
-            <div class="row mdc-elevation--z1 mdc-ripple-surface me-card">
-                <i class="material-icons md-24 clickable">face</i>
-                <a href="#">Lister les évaluations</a>
-            </div>
+        <div class="col">
+            <Biglink controller="Evaluation" action="List" info="bglinkList" />
+        </div>
+        <div class="col">
+            <biglink controller="Evaluation" action="" info="bglinkRejoindre" />
         </div>
     </div>
 </div>
