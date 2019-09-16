@@ -4,90 +4,98 @@
     ViewData["Title"] = "List";
 }
 
-<h1>Liste des étudiants</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <label asp-for="First().num_evaluation"></label>
-            </th>
-            <th>
-                <label asp-for="First().nom_eleve"></label>
-            </th>
-            <th>
-                <label asp-for="First().prenom_eleve"></label>
-            </th>
-            <th>
-                <label asp-for="First().telephone_eleve"></label>
-            </th>
-            <th>
-                <label asp-for="First().courriel_eleve"></label>
-            </th>
-            <th>
-                <label asp-for="First().genre_eleve"></label>
-            </th>
-            <th>
-                <label asp-for="First().note_evaluation"></label>
-            </th>
-            <th>
-                <label asp-for="First().date_evaluation"></label>
-            </th>
-            <th>
-                <label asp-for="First().commentaires_evaluation"></label>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (Evaluation item in Model) {
-        <tr>
-            <td>
-                <label asp-for="@item.num_evaluation">@item.num_evaluation</label>
-            </td>
-            <td>
-                <label asp-for="@item.nom_eleve">@item.nom_eleve</label>
-            </td>
-            <td>
-                <label asp-for="@item.prenom_eleve">@item.prenom_eleve</label>
-            </td>
-            <td>
-                <label asp-for="@item.telephone_eleve">@item.telephone_eleve</label>
-            </td>
-            <td>
-                <label asp-for="@item.courriel_eleve">@item.courriel_eleve</label>
-            </td>
-            <td>
-                @switch (item.genre_eleve)
-                {
-                    case 'M':
-                        <label asp-for="@item.genre_eleve">Homme</label>;
-                        break;
-                    case 'F':
-                        <label asp-for="@item.genre_eleve">Femme</label>;
-                        break;
-                    default:
-                        <label asp-for="@item.genre_eleve">Autre</label>;
-                        break;
-                }
-            </td>
-            <td>
-                <label asp-for="@item.note_evaluation">@item.note_evaluation</label>
-            </td>
-            <td>
-                <label asp-for="@item.date_evaluation">@item.date_evaluation</label>
-            </td>
-            <td>
-                <label asp-for="@item.commentaires_evaluation">@item.commentaires_evaluation</label>
-            </td>
-            <td>
-                <a asp-controller="Evaluation" asp-action="Update" asp-route-num_evaluation="@item.num_evaluation">Modifier</a> |
-                <a asp-controller="Evaluation" asp-action="Delete" asp-route-num_evaluation="@item.num_evaluation">Supprimer</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container list-container">
+    <div class="list-message">
+        <div class="list-message-container">
+            <div class="list-message-container-highlighter">
+                <h6>La progression de vos étudiants.</h6>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <label asp-for="First().num_evaluation"></label>
+                </th>
+                <th>
+                    <label asp-for="First().nom_eleve"></label>
+                </th>
+                <th>
+                    <label asp-for="First().prenom_eleve"></label>
+                </th>
+                <th>
+                    <label asp-for="First().telephone_eleve"></label>
+                </th>
+                <th>
+                    <label asp-for="First().courriel_eleve"></label>
+                </th>
+                <th>
+                    <label asp-for="First().genre_eleve"></label>
+                </th>
+                <th>
+                    <label asp-for="First().note_evaluation"></label>
+                </th>
+                <th>
+                    <label asp-for="First().date_evaluation"></label>
+                </th>
+                <th>
+                    <label asp-for="First().commentaires_evaluation"></label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Evaluation item in Model)
+            {
+                <tr>
+                    <td>
+                        <label asp-for="@item.num_evaluation">@item.num_evaluation</label>
+                    </td>
+                    <td>
+                        <label asp-for="@item.nom_eleve">@item.nom_eleve</label>
+                    </td>
+                    <td>
+                        <label asp-for="@item.prenom_eleve">@item.prenom_eleve</label>
+                    </td>
+                    <td>
+                        <label asp-for="@item.telephone_eleve">@item.telephone_eleve</label>
+                    </td>
+                    <td>
+                        <label asp-for="@item.courriel_eleve">@item.courriel_eleve</label>
+                    </td>
+                    <td>
+                        @switch (item.genre_eleve)
+                        {
+                            case 'M':
+                                <label asp-for="@item.genre_eleve">Homme</label>;
+                                break;
+                            case 'F':
+                                <label asp-for="@item.genre_eleve">Femme</label>;
+                                break;
+                            default:
+                                <label asp-for="@item.genre_eleve">Autre</label>;
+                                break;
+                        }
+                    </td>
+                    <td>
+                        <label asp-for="@item.note_evaluation">@item.note_evaluation</label>
+                    </td>
+                    <td>
+                        <label asp-for="@item.date_evaluation">@item.date_evaluation</label>
+                    </td>
+                    <td>
+                        <label asp-for="@item.commentaires_evaluation">@item.commentaires_evaluation</label>
+                    </td>
+                    <td>
+                        <a asp-controller="Evaluation" asp-action="Update" asp-route-num_evaluation="@item.num_evaluation">Modifier</a> |
+                        <a asp-controller="Evaluation" asp-action="Delete" asp-route-num_evaluation="@item.num_evaluation">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="list-page-widget">
+        <a asp-action="Create">Ajouter  un étudiant</a>
+    </div>
+</div>
