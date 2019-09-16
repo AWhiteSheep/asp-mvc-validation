@@ -142,7 +142,7 @@ footer {
 footer > hr {
     border-top: .5px solid white;
 }
-.list-container {
+.list-wrapper {
     margin-top:45pt;
     margin-bottom:45pt;
     background-color:white;
@@ -162,23 +162,36 @@ footer > hr {
     text-decoration:none;
     color: black;
 }
-.list-message {
+/* Message first wrapper */
+.flex-wrapper {
     display:flex;
-    padding: 75pt 0;
 }
-.list-message-container {
+/* Message second wrapper */
+.superior-wrapper {
+    position: relative;
     margin:auto;
 }
-.list-message-container-highlighter > h6 {
+.superior-wrapper > h1 {
     position: absolute;
-    right: 8pt;
     display: flex;
+    right: 8pt;
     font-size: 18px;
     color: black;
 }
-.list-message-container-highlighter {
+
+/* color section */
+.orange-72 {
+    background-color: rgba(252,145,58,.72);
+}
+.orange-62 {
+    background-color: rgba(252,145,58,.72);
+}
+/* width height section */
+.w230-h10 {
     width: 230pt;
     height: 10pt;
-    position: relative;
-    background-color: rgba(252,145,58,.72);
+}
+/* padding section */
+.p-75-0 {
+    padding: 75pt 0;
 }
