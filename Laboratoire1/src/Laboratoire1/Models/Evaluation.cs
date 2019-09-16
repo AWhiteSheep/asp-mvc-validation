@@ -9,31 +9,31 @@ namespace Laboratoire1.Models
     public class Evaluation
     {
         [Required]
-        [Display(Name = "Numéro de l'évaluation")]
+        [Display(Name = "#Évaluation")]
         public int num_evaluation { get; set; }
         [Required]
-        [Display(Name = "Nom de l'étudiant")]
+        [Display(Name = "Étudiant")]
         public string nom_eleve { get; set; }
         [Required]
-        [Display(Name = "Prénom de l'étudiant")]
+        [Display(Name = "Prénom")]
         public string prenom_eleve { get; set; }
         [Required]
-        [Display(Name = "Téléphone de l'étudiant")]
+        [Display(Name = "Téléphone é.")]
         public string telephone_eleve { get; set; }
         [Required]
-        [Display(Name = "Courriel de l'étudiant")]
+        [Display(Name = "Courriel é.")]
         public string courriel_eleve { get; set; }
         [Required]
-        [Display(Name = "Sexe de l'étudiant")]
+        [Display(Name = "Sexe é.")]
         public char genre_eleve { get; set; }
         [Required]
-        [Display(Name = "Note de l'évaluation")]
+        [Display(Name = "Note évaluation")]
         public string note_evaluation { get; set; }
         [Required]
-        [Display(Name = "Date de l'évaluation")]
+        [Display(Name = "Date évaluation")]
         public DateTime date_evaluation { get; set; }
         [Required]
-        [Display(Name = "Commetaire de l'évaluation")]
+        [Display(Name = "Commetaire")]
         public string commentaires_evaluation { get; set; }
 
     }
