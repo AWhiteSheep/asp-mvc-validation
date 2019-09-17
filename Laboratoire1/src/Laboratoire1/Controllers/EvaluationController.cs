@@ -20,8 +20,18 @@ namespace Laboratoire1.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult List()
         {
+            return View(Evaluations.ListeEvaluations);
+        }
+
+        [HttpGet("/Evaluation/List/{type}/{m_message}")]
+        public IActionResult List(string type, string m_message)
+        {
+            // will add modal message to the page
+            ViewBag.m_message = m_message;
+            ViewBag.type = type;
             return View(Evaluations.ListeEvaluations);
         }
 
@@ -31,10 +41,35 @@ namespace Laboratoire1.Controllers
             return View();
         }
 
+        [HttpGet("/Evaluation/Create/{type}/{m_message}")]
+        public IActionResult Create(string type, string m_message)
+        {
+            // will add modal message to the page
+            ViewBag.m_message = m_message;
+            ViewBag.type = type;
+            return View();
+        }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public RedirectToActionResult Create(Evaluation evaluation)
         {
-            return RedirectToAction(nameof(List));
+            if (ModelState.IsValid) {
+                Evaluations.Ajouter(evaluation);
+                return RedirectToAction(nameof(List),
+                    new UserMessage()
+                    {
+                        m_message = new string("Évaluation de " + evaluation.prenom_eleve + " ajouté avec succès!"),
+                        type = UserMessage._type.SUCCESS
+                    });                       
+            }
+
+            return RedirectToAction(nameof(Create),
+                new UserMessage()
+                {
+                    m_message = new string("L'évaluation n'a pas pu être ajouté."),
+                    type = UserMessage._type.ERROR
+                });
         }
 
         [HttpGet]

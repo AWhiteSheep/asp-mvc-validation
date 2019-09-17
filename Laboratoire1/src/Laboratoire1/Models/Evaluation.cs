@@ -18,13 +18,13 @@ namespace Laboratoire1.Models
         [Display(Name = "Prénom")]
         public string prenom_eleve { get; set; }
         [Required]
-        [Display(Name = "Téléphone é.")]
+        [Display(Name = "Téléphone étudiant")]
         public string telephone_eleve { get; set; }
         [Required]
-        [Display(Name = "Courriel é.")]
+        [Display(Name = "Courriel étudiant")]
         public string courriel_eleve { get; set; }
         [Required]
-        [Display(Name = "Sexe é.")]
+        [Display(Name = "Sexe étudiant")]
         public char genre_eleve { get; set; }
         [Required]
         [Display(Name = "Note évaluation")]
@@ -33,7 +33,7 @@ namespace Laboratoire1.Models
         [Display(Name = "Date évaluation")]
         public DateTime date_evaluation { get; set; }
         [Required]
-        [Display(Name = "Commetaire")]
+        [Display(Name = "Commentaire")]
         public string commentaires_evaluation { get; set; }
 
     }

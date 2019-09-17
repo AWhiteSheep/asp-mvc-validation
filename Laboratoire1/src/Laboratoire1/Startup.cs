@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Laboratoire1.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -32,6 +35,11 @@ namespace Laboratoire1
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddRouting(options =>
+            {
+                options.ConstraintMap.Add("messageParam", typeof(UserMessage));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +61,14 @@ namespace Laboratoire1
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Evaluation}/{action=Accueil}/{id?}");
+                    template: "{controller}/{action}/{type?}/{m_message?}",
+                    defaults: new { Controller = "Evaluation", action = "Accueil" },
+                    constraints: new { type = new StringRouteConstraint(""), m_message = new StringRouteConstraint("") });
+                routes.MapRoute(
+                    name: "ids",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { Controller = "Evaluation", action = "Accueil" },
+                    constraints: new { id = new IntRouteConstraint() });
             });
         }
     }

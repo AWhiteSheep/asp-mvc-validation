@@ -3,82 +3,92 @@
 @{
     ViewData["Title"] = "Create";
     Dictionary<string, char> selectListItems = new Dictionary<string, char>(){
-        { "Homme", 'H' },
-        { "Femme", 'F' }
-    };
+{ "Homme", 'H' },
+{ "Femme", 'F' }
+};
 }
 
-<h2>Create</h2>
-
-<h4>Evaluation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="num_evaluation" class="control-label"></label>
-                <input asp-for="num_evaluation" class="form-control" />
-                <span asp-validation-for="num_evaluation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="nom_eleve" class="control-label"></label>
-                <input asp-for="nom_eleve" class="form-control" />
-                <span asp-validation-for="nom_eleve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="prenom_eleve" class="control-label"></label>
-                <input asp-for="prenom_eleve" class="form-control" />
-                <span asp-validation-for="prenom_eleve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="telephone_eleve" class="control-label"></label>
-                <input asp-for="telephone_eleve" class="form-control" />
-                <span asp-validation-for="telephone_eleve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="courriel_eleve" class="control-label"></label>
-                <input asp-for="courriel_eleve" class="form-control" />
-                <span asp-validation-for="courriel_eleve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="genre_eleve" class="control-label"></label><br>
-                @foreach (var sex in selectListItems)
-                {
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" asp-for="genre_eleve" value="@sex.Value" />
-                        <label class="form-check-label" asp-for="courriel_eleve">@sex.Key</label>
-                    </div>
-                }
-                <br><span asp-validation-for="genre_eleve" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="note_evaluation" class="control-label"></label>
-                <input asp-for="note_evaluation" class="form-control" />
-                <span asp-validation-for="note_evaluation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="date_evaluation" class="control-label"></label>
-                <input asp-for="date_evaluation" class="form-control" />
-                <span asp-validation-for="date_evaluation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="commentaires_evaluation" class="control-label"></label>
-                <input asp-for="commentaires_evaluation" class="form-control" />
-                <span asp-validation-for="commentaires_evaluation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+@if (ViewBag.m_message != null)
+{
+    <section id="message-alert" data-message="@ViewBag.m_message" data-type="@ViewBag.type"></section>
+}
+<div class="container white-wrapper pb-5">
+    <div class="flex-wrapper p-50-0">
+        <div class="superior-wrapper m-auto w230-h10 orange-72">
+            <h1>Formulaire de nouvelle évaluation.</h1>
+        </div>
     </div>
+    <form id="myform" asp-controller="Evaluation" asp-action="Create" method="post">
+        <div class="flex-wrapper">
+            <div class="superior-wrapper m-auto rect-md dark-blue-background scroll">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="num_evaluation" class="control-label"></label>
+                    <input name="num_evaluation" data-msg="SVP remplir cet attribut. Nombre seulement." asp-for="num_evaluation" class="form-control" />
+                    <span asp-validation-for="num_evaluation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="nom_eleve" class="control-label"></label>
+                    <input name="nom_eleve" data-msg="SVP remplir cet attribut. Text seulement." asp-for="nom_eleve" class="form-control" />
+                    <span asp-validation-for="nom_eleve" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="prenom_eleve" class="control-label"></label>
+                    <input name="prenom_eleve" data-msg="SVP remplir cet attribut. Text seulement." asp-for="prenom_eleve" class="form-control" />
+                    <span asp-validation-for="prenom_eleve" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="telephone_eleve" class="control-label"></label>
+                    <input name="telephone_eleve" data-msg="SVP remplir cet attribut. Numero seulement." asp-for="telephone_eleve" class="form-control" />
+                    <span asp-validation-for="telephone_eleve" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="courriel_eleve" class="control-label"></label>
+                    <input name="courriel_eleve" data-msg="SVP remplir cet attribut. Courriel seulement." asp-for="courriel_eleve" class="form-control" />
+                    <span asp-validation-for="courriel_eleve" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="genre_eleve" class="control-label"></label><br>
+                    @foreach (var sex in selectListItems)
+                    {
+                        <div class="form-check form-check-inline">
+                            <input name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="@sex.Value" />
+                            <label class="form-check-label" asp-for="courriel_eleve">@sex.Key</label>
+                        </div>
+                    }
+                    <br><span asp-validation-for="genre_eleve" class="text-danger"></span>
+                    <label for="gender" class="error">Vous devez choisir un sexe.</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="note_evaluation" class="control-label"></label>
+                    <input data-msg="SVP remplir cet attribut." name="note_evaluation" asp-for="note_evaluation" class="form-control" />
+                    <span asp-validation-for="note_evaluation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="date_evaluation" class="control-label"></label>
+                    <input data-msg="SVP remplir cet attribut." name="date_evaluation" asp-for="date_evaluation" class="form-control" />
+                    <span asp-validation-for="date_evaluation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="commentaires_evaluation" class="control-label"></label>
+                    <input data-msg="SVP remplir cet attribut." name="commentaires_evaluation" asp-for="commentaires_evaluation" class="form-control" />
+                    <span asp-validation-for="commentaires_evaluation" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group" style="text-align:center">
+            <button type="submit" class="btn btn-success p-2">Enregistrer</button>
+            <a asp-controller="Evaluation" asp-action="List" class="btn btn-danger p-2">Annuler</a>
+        </div>
+    </form>
 </div>
-
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts 
-{
+@section Scripts
+    {
     <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/js/Create.js"></script>
 }

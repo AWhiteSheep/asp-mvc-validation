@@ -1,7 +1,15 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
+
+/**
+ * 
+ * Yan Ha Routhier-Chevrier
+ * contenu css partagé
+ * 
+ * */
+
 body {
-    height:100vh;
+    min-height:100vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("../images/banner_jpeg.jpg");
@@ -142,7 +150,7 @@ footer {
 footer > hr {
     border-top: .5px solid white;
 }
-.list-wrapper {
+.white-wrapper {
     margin-top:45pt;
     margin-bottom:45pt;
     background-color:white;
@@ -169,7 +177,6 @@ footer > hr {
 /* Message second wrapper */
 .superior-wrapper {
     position: relative;
-    margin:auto;
 }
 .superior-wrapper > h1 {
     position: absolute;
@@ -186,6 +193,9 @@ footer > hr {
 .orange-62 {
     background-color: rgba(252,145,58,.72);
 }
+.dark-blue-background {
+    background-color: #173f5f;
+}
 /* width height section */
 .w230-h10 {
     width: 230pt;
@@ -197,4 +207,31 @@ footer > hr {
 }
 .p-50-0 {
     padding: 50pt 0;
+}
+/* geometric forme */
+.rect-md {
+    width: 636pt;
+    height: 327pt;
+}
+/* scrolling */
+.scroll {
+    padding: 10pt 0;
+    overflow: scroll;
+}
+.form-group > label {
+    color: white;
+}
+.form-group {
+    width: 300pt;
+    margin:auto;
+    padding: 10pt;
+}
+.form-group > .form-check {
+    color: white;
+}
+.form-group > .error {
+    color: red;
+}
+.form-check > .error {
+    color: red;
 }
