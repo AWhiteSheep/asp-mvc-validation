@@ -2,13 +2,21 @@
 
 @{
     ViewData["Title"] = "List";
+
+    List<SelectListItem> evaluationlist = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Très bien", Text = "Très bien" },
+        new SelectListItem { Value = "Bien", Text = "Bien" },
+        new SelectListItem { Value = "Moyen", Text = "Moyen"  },
+        new SelectListItem { Value = "Médiocre", Text = "Médiocre"  },
+    };
 }
 
 @if (ViewBag.m_message != null)
 {
     <section id="message-alert" data-message="@ViewBag.m_message" data-type="@ViewBag.type"></section>
 }
-<div class="container white-wrapper">
+<div class="container white-wrapper" style="padding-bottom:30pt;">
     <div class="flex-wrapper p-50-0">
         <div class="superior-wrapper m-auto w230-h10 orange-72">
             <h1>La progression de vos étudiants.</h1>
@@ -35,14 +43,14 @@
     @foreach (Evaluation item in Model)
     {
         // Rowevaluation est un TagHelper qui transorme la balise pour un div contenant un data-* pour tous les fields d'une évaluation
-        <Rowevaluation eval="@item" style="text-align:left;">
+        <Rowevaluation eval="@item" style="text-align:left;background-color:#f7f7f9; padding: 5pt;">
             <div class="col-2"><label asp-for="@item.num_evaluation">@item.num_evaluation</label></div>
             <div class="col-2"><label asp-for="@item.nom_eleve">@item.nom_eleve</label></div>
             <div class="col-2"><label asp-for="@item.nom_eleve">@item.prenom_eleve</label></div>
             <div class="col-2"><label asp-for="@item.note_evaluation">@item.note_evaluation</label></div>
             <div class="col-2"><label asp-for="@item.date_evaluation">@item.date_evaluation</label></div>
             <div class="col-2">
-                <a asp-controller="Evaluation" asp-action="Update" asp-route-num_evaluation="@item.num_evaluation">Modifier</a>|
+                <a asp-controller="Evaluation" asp-action="Update" asp-route-num_evaluation="@item.num_evaluation">Modifier</a> |
                 <a asp-controller="Evaluation" asp-action="Delete" asp-route-num_evaluation="@item.num_evaluation">Supprimer</a>
             </div>
         </Rowevaluation>

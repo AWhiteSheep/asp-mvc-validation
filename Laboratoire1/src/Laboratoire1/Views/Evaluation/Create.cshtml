@@ -3,9 +3,16 @@
 @{
     ViewData["Title"] = "Create";
     Dictionary<string, char> selectListItems = new Dictionary<string, char>(){
-{ "Homme", 'H' },
-{ "Femme", 'F' }
-};
+        { "Homme", 'H' },
+        { "Femme", 'F' }
+    };
+    List<SelectListItem> evaluationlist = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Très bien", Text = "Très bien" },
+        new SelectListItem { Value = "Bien", Text = "Bien" },
+        new SelectListItem { Value = "Moyen", Text = "Moyen"  },
+        new SelectListItem { Value = "Médiocre", Text = "Médiocre"  },
+    };
 }
 
 @if (ViewBag.m_message != null)
@@ -73,7 +80,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="commentaires_evaluation" class="control-label"></label>
-                    <input data-msg="SVP remplir cet attribut." name="commentaires_evaluation" asp-for="commentaires_evaluation" class="form-control" />
+                    <select name="commentaires_evaluation" asp-for="commentaires_evaluation" asp-items="evaluationlist"></select>
                     <span asp-validation-for="commentaires_evaluation" class="text-danger"></span>
                 </div>
             </div>

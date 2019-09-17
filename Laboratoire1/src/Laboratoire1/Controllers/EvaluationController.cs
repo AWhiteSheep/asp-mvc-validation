@@ -75,7 +75,8 @@ namespace Laboratoire1.Controllers
         [HttpGet]
         public IActionResult Update(int num_evaluation)
         {
-            return View();
+            Evaluation  eval = Evaluations.ListeEvaluations.First(e => e.num_evaluation == num_evaluation);
+            return View(eval);
         }
 
         [HttpPost]
