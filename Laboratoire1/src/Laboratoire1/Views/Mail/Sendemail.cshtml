@@ -1,0 +1,112 @@
+﻿@model Laboratoire1.Models.Email
+
+@{
+    ViewData["Title"] = "Sendemail";
+}
+
+<div class="container white-wrapper pb-5">
+    <div class="flex-wrapper p-50-0">
+        <div class="superior-wrapper m-auto w230-h10 orange-72">
+            <h1>Send.</h1>
+        </div>
+    </div>
+    <form asp-action="Sendemail" method="post">
+        <div class="flex-wrapper">
+            <div class="superior-wrapper m-auto rect-md dark-blue-background scroll">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="from" class="control-label"></label>
+                    <input asp-for="from" class="form-control" />
+                    <span asp-validation-for="from" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="to" class="control-label"></label>
+                    <input asp-for="to" class="form-control" />
+                    <span asp-validation-for="to" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="password" class="control-label"></label>
+                    <input asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="subject" class="control-label"></label>
+                    <input asp-for="subject" class="form-control" />
+                    <span asp-validation-for="subject" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="content" class="control-label"></label>
+                    <input asp-for="content" class="form-control" />
+                    <span asp-validation-for="content" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group" style="text-align:center">
+            <button type="submit" class="btn btn-success p-2">Envoyer</button>
+            <a id="annuler" class="btn btn-danger p-2" data-toggle="modal" style="color:white;">Annuler</a>
+        </div>
+    </form>
+</div>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Voulez vous vraiment annuler?</h5>
+                <button type="button" class="close" data-dismiss="modalCreate" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <a onclick="clearForm();" class="btn btn-warning" data-dismiss="modal" style="color:white;">Je souhaite annuler</a>
+                <button type="button" class="btn btn-success" data-dismiss="modal" style="color:white;">Je souhaite poursuivre</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+    {
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+        // valide le formulaire
+        var validator = $("#email").validate({
+            rules: {
+                from: {
+                    required: true,
+                    email: true
+                },
+                for: {
+                    required: true
+                },
+                subject: {
+                    required: true
+                }
+            },
+            messages: {
+                from: {
+                    required: "Ce champ est obligatoire.",
+                    textonly: "Ceci doit être un email."
+                },
+                for: {
+                    required: "Le prénom est obligatoire."
+                },
+                subject: {
+                    required: "Le téléphone est obligatoire."
+                }
+            }
+        });
+
+        $("#annuler").click(function () {
+            $("#email").validate().resetForm();
+        });
+
+        function clearForm() {
+            validator.resetForm();
+        }
+    </script>
+}
