@@ -1,4 +1,7 @@
-﻿
+﻿@{ 
+    DateTime dateTime = DateTime.Now;
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +27,10 @@
 <body>
     <div class="banner">
         <div class="widget-dark">
-            Le 14 septembre 2019<br>
-            16:08
+            <time data-date="@dateTime"></time>
+            @dateTime.ToString("dddd, dd MMMM yyyy")
+            <br>
+            @dateTime.ToString("h:mm tt")
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark">

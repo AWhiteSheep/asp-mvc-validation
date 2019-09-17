@@ -24,17 +24,17 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="num_evaluation" class="control-label"></label>
-                    <input name="num_evaluation" data-msg="SVP remplir cet attribut. Nombre seulement." asp-for="num_evaluation" class="form-control" />
+                    <input name="num_evaluation" data-msg="Champ obligatoire, doit être numérique." asp-for="num_evaluation" class="form-control" />
                     <span asp-validation-for="num_evaluation" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="nom_eleve" class="control-label"></label>
-                    <input name="nom_eleve" data-msg="SVP remplir cet attribut. Text seulement." asp-for="nom_eleve" class="form-control" />
+                    <input name="nom_eleve" data-msg="Nom obligatoire, doit commencer avec une majuscule." asp-for="nom_eleve" class="form-control" />
                     <span asp-validation-for="nom_eleve" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="prenom_eleve" class="control-label"></label>
-                    <input name="prenom_eleve" data-msg="SVP remplir cet attribut. Text seulement." asp-for="prenom_eleve" class="form-control" />
+                    <input name="prenom_eleve" data-msg="Prenom obligatoire, doit commencer avec une majuscule." asp-for="prenom_eleve" class="form-control" />
                     <span asp-validation-for="prenom_eleve" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -63,12 +63,12 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="note_evaluation" class="control-label"></label>
-                    <input data-msg="SVP remplir cet attribut." name="note_evaluation" asp-for="note_evaluation" class="form-control" />
+                    <input name="note_evaluation" asp-for="note_evaluation" class="form-control" type="number"/>
                     <span asp-validation-for="note_evaluation" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="date_evaluation" class="control-label"></label>
-                    <input data-msg="SVP remplir cet attribut." name="date_evaluation" asp-for="date_evaluation" class="form-control" />
+                    <input name="date_evaluation" asp-for="date_evaluation" class="form-control" />
                     <span asp-validation-for="date_evaluation" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -84,9 +84,6 @@
             <a asp-controller="Evaluation" asp-action="List" class="btn btn-danger p-2">Annuler</a>
         </div>
     </form>
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts

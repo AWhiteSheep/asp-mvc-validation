@@ -18,11 +18,26 @@ $(document).ready(function () {
                 + message
                 + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
                 + "<span aria-hidden='true'>&times;</span></button></div>");
+            // cleaning url part
+            var url = window.location.toString();
+            if (url.indexOf("ERROR") > 0) {
+                var clean_url = url.substring(0, url.indexOf("ERROR"));
+                window.history.replaceState({}, document.title, clean_url);
+            }
         } else if (type == "1" || type == "SUCCESS") {
             $("body").prepend("<div class='alert alert-success alert-dismissible fade show' role='alert'>"
                 + message
                 + "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"
                 + "<span aria-hidden='true'>&times;</span></button></div>");
+            // cleaning url part
+            var url = window.location.toString();
+            if (url.indexOf("SUCCESS") > 0) {
+                var clean_url = url.substring(0, url.indexOf("SUCCESS"));
+                window.history.replaceState({}, document.title, clean_url);
+            }
         }
+        
+        
     });
 });
+

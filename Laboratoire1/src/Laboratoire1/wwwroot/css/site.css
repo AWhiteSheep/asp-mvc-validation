@@ -229,9 +229,6 @@ footer > hr {
 .form-group > .form-check {
     color: white;
 }
-.form-group > .error {
-    color: red;
-}
-.form-check > .error {
-    color: red;
+.error {
+    color: red !important;
 }
