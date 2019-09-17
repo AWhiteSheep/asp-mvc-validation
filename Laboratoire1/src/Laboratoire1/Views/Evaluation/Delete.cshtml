@@ -12,13 +12,6 @@
         { "Homme", 'H' },
         { "Femme", 'F' }
         };
-    List<SelectListItem> evaluationlist = new List<SelectListItem>
-        {
-        new SelectListItem { Value = "Très bien", Text = "Très bien" },
-        new SelectListItem { Value = "Bien", Text = "Bien" },
-        new SelectListItem { Value = "Moyen", Text = "Moyen"  },
-        new SelectListItem { Value = "Médiocre", Text = "Médiocre"  },
-        };
 }
 
 <div class="container white-wrapper pb-5">
@@ -84,7 +77,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="commentaires_evaluation" class="control-label"></label>
-                    <select readonly="readonly" name="commentaires_evaluation" asp-for="commentaires_evaluation" asp-items="evaluationlist"></select>
+                    <input readonly="readonly" name="commentaires_evaluation"  asp-for="date_evaluation" class="form-control" />
                 </div>
             </div>
         </div><br />
