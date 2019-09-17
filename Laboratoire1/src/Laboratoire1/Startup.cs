@@ -68,6 +68,10 @@ namespace Laboratoire1
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Evaluation}/{action=Index}/{id?}/{type?}/{m_message?}");
+                routes.MapRoute(
+                    name: "mailservices",
+                    template: "{controller=Mail}/{action=Index}/{from?}/{to?}/{subject?}/{content?}/{password?}"
+                );
             });
         }
     }
