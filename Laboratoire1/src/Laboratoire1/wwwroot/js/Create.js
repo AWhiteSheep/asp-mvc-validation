@@ -7,7 +7,7 @@
 
 // ajout des regexp pour text et gender
 jQuery.validator.addMethod("textonly", function (value, element) {
-    return this.optional(element) || /^[A-Z][a-zA-Z \-]+$/.test(value);
+    return this.optional(element) || /^[A-Z][a-zA-Z \s-]+$/.test(value);
 }, 'Première lettre doit êter en majuscule et lettre seulement accepté.');
 
 
