@@ -8,14 +8,16 @@ using Microsoft.AspNetCore.Mvc;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
+using Microsoft.Exchange.WebServices.Data;
+using Microsoft.Exchange.WebServices.Autodiscover;
 /**
- * 
- * Yan Ha Routhier-Chevrier
- * 1473192 - laboratoire 1
- * 
- * référence pour le code d'envoie (port bloqué)
- * 
- * */
+* 
+* Yan Ha Routhier-Chevrier
+* 1473192 - laboratoire 1
+* 
+* référence pour le code d'envoie (port bloqué)
+* 
+* */
 namespace Laboratoire1.Controllers
 {
     public class MailController : Controller
@@ -28,32 +30,44 @@ namespace Laboratoire1.Controllers
         [HttpGet]
         public IActionResult Send()
         {
-            
                 return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public RedirectToRouteResult Send(IFormCollection form)
-        {
-            var message = new MimeMessage();
+        public IActionResult Send(string from, string to, string subject, string content, string password)
+        {            
+            ExchangeService myservice = new ExchangeService(ExchangeVersion.Exchange2010_SP1);
+            myservice.Credentials = new WebCredentials(from, password);
 
-            message.From.Add(new MailboxAddress(form["from"].ToString(), form["from"].ToString()));
-            message.To.Add(new MailboxAddress(form["to"].ToString(), form["to"].ToString()));
-            message.Subject = form["subject"].ToString();
+            try
+            {
+                string serviceUrl = "https://outlook.office365.com/ews/exchange.asmx";
 
-            message.Body = new TextPart("plain")
+                myservice.Url = new Uri(serviceUrl);
+                EmailMessage emailMessage = new EmailMessage(myservice);
+                emailMessage.Subject = subject;
+                emailMessage.Body = new MessageBody(content);
+
+                emailMessage.ToRecipients.Add(to);
+                emailMessage.Send();
+            }
+            catch (SmtpException exception)
             {
-                Text = form["content"].ToString()
-            };
-            using (var client = new MailKit.Net.Smtp.SmtpClient())
-            {
-                client.Connect("smtp.gmail.com", 587, false);
-                client.Authenticate(form["from"].ToString(), form["password"].ToString());
-                client.Send(message);
-                client.Disconnect(true);
+                string msg = "Erreur:message n'a pas pu être envoyé";
+                msg += exception.Message;
+                throw new Exception(msg);
             }
 
-            return RedirectToRoute("Evaluation/Index");
+            catch (AutodiscoverRemoteException exception)
+            {
+                string msg = "Erreur:message n'a pas pu être envoyé";
+                msg += exception.Message;
+                throw new Exception(msg);
+            }
+
+            RedirectToActionResult redirectToActionResult = new RedirectToActionResult("Accueil", "Evaluation", "");
+            return redirectToActionResult;
         
         }
 
