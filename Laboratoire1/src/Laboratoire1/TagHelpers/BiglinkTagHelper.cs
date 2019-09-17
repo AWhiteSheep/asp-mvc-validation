@@ -5,7 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+/**
+ * 
+ * Yan Ha Routhier-Chevrier
+ * 1473192 - laboratoire 1
+ * 
+ * */
 namespace Laboratoire1.TagHelpers
 {
     public class BiglinkTagHelper : TagHelper
@@ -14,6 +19,7 @@ namespace Laboratoire1.TagHelpers
         public string controller { get; set; }
         public string action { get; set; }
 
+        // rend un model html avec le content nécessaire pour nourrir la vue
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             var url = info.link ?? "/" + controller + "/" + action ?? "#";

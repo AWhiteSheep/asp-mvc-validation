@@ -1,21 +1,28 @@
 ﻿
 @{
+    /**
+     * 
+     * Yan Ha Routhier-Chevrier
+     * 1473192 - laboratoire 1
+     * 
+     * */
+
     //https://github.com/material-components/material-components-web/tree/master/packages/mdc-elevation
     ViewData["Title"] = "Accueil";
 
     BiglinkContext bglinkEnregistrer = new BiglinkContext
     {
-        icon = "note_add",
+        icon = "class",
         text = "Enregistrez les évaluations des élèves."
     };
     BiglinkContext bglinkList = new BiglinkContext
     {
-        icon = "note_add",
+        icon = "dns",
         text = "Voir le progrès de vos élèves!"
     };
     BiglinkContext bglinkRejoindre = new BiglinkContext
     {
-        icon = "note_add",
+        icon = "call",
         text = "Nous rejoindre."
     };
 
@@ -39,7 +46,7 @@
 </div>
 
 @section Scripts
-{
+    {
     <script type="text/javascript" src="~/js/accueil.js"></script>
 }
 

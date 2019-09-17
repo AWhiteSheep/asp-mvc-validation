@@ -11,7 +11,12 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+/**
+ * 
+ * Yan Ha Routhier-Chevrier
+ * 1473192 - laboratoire 1
+ * 
+ * */
 namespace Laboratoire1
 {
     public class Startup
@@ -43,6 +48,7 @@ namespace Laboratoire1
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // routage nécessaire pour mon application
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

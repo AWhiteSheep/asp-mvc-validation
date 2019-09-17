@@ -5,7 +5,12 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+/**
+ * 
+ * Yan Ha Routhier-Chevrier
+ * 1473192 - laboratoire 1
+ * 
+ * */
 namespace Laboratoire1.Controllers
 {
     public class MailController : Controller

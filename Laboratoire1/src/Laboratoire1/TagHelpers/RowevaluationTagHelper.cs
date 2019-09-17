@@ -4,13 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+/**
+ * 
+ * Yan Ha Routhier-Chevrier
+ * 1473192 - laboratoire 1
+ * 
+ * */
 namespace Laboratoire1.TagHelpers
 {
     public class RowevaluationTagHelper : TagHelper
     {
         public Evaluation eval { get; set; }
 
+        // content nécessaire afin de créer la balise avec le dataset
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "div"; // change the tag to a section

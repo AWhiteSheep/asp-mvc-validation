@@ -7,7 +7,12 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-
+/**
+ * 
+ * Yan Ha Routhier-Chevrier
+ * 1473192 - laboratoire 1
+ * 
+ * */
 namespace Laboratoire1
 {
     public class Program

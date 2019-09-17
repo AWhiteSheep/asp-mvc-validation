@@ -7,54 +7,49 @@
      * 1473192 - laboratoire 1
      * 
      * */
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "Delete";
     Dictionary<string, char> selectListItems = new Dictionary<string, char>(){
-{ "Homme", 'H' },
-{ "Femme", 'F' }
-};
+        { "Homme", 'H' },
+        { "Femme", 'F' }
+        };
     List<SelectListItem> evaluationlist = new List<SelectListItem>
-{
-new SelectListItem { Value = "Très bien", Text = "Très bien" },
-new SelectListItem { Value = "Bien", Text = "Bien" },
-new SelectListItem { Value = "Moyen", Text = "Moyen"  },
-new SelectListItem { Value = "Médiocre", Text = "Médiocre"  },
-};
+        {
+        new SelectListItem { Value = "Très bien", Text = "Très bien" },
+        new SelectListItem { Value = "Bien", Text = "Bien" },
+        new SelectListItem { Value = "Moyen", Text = "Moyen"  },
+        new SelectListItem { Value = "Médiocre", Text = "Médiocre"  },
+        };
 }
 
 <div class="container white-wrapper pb-5">
     <div class="flex-wrapper p-50-0">
         <div class="superior-wrapper m-auto w230-h10 orange-72">
-            <h1>Modifier l'évaluation.</h1>
+            <h1>Supprimer une évaluation.</h1>
         </div>
     </div>
-    <form id="myform" asp-action="Update" method="post">
+    <form id="myform" asp-action="Delete" method="post">
         <div class="flex-wrapper">
             <div class="superior-wrapper m-auto rect-md dark-blue-background scroll">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="num_evaluation" class="control-label"></label>
                     <input readonly="readonly" asp-for="num_evaluation" class="form-control" />
-                    <span asp-validation-for="num_evaluation" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="nom_eleve" class="control-label"></label>
-                    <input asp-for="nom_eleve" class="form-control" />
-                    <span asp-validation-for="nom_eleve" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="nom_eleve" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="prenom_eleve" class="control-label"></label>
-                    <input asp-for="prenom_eleve" class="form-control" />
-                    <span asp-validation-for="prenom_eleve" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="prenom_eleve" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="telephone_eleve" class="control-label"></label>
-                    <input asp-for="telephone_eleve" class="form-control" />
-                    <span asp-validation-for="telephone_eleve" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="telephone_eleve" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="courriel_eleve" class="control-label"></label>
-                    <input asp-for="courriel_eleve" class="form-control" />
-                    <span asp-validation-for="courriel_eleve" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="courriel_eleve" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="genre_eleve" class="control-label"></label><br>
@@ -64,48 +59,38 @@ new SelectListItem { Value = "Médiocre", Text = "Médiocre"  },
                             {
                                 case 'M':
                                     <label asp-for="genre_eleve">Homme</label>;
-                                    <input name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="H" checked="checked" />
+                                    <input readonly="readonly" name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="H" checked="checked" />
                                     <label asp-for="genre_eleve">Femme</label>;
-                                    <input name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="F" />
+                                    <input readonly="readonly" name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="F" />
                                     break;
                                 case 'F':
                                     <label asp-for="genre_eleve">Homme</label>;
-                                    <input name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="H" />
+                                    <input readonly="readonly" name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="H" />
                                     <label asp-for="genre_eleve">Femme</label>;
-                                    <input name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="F" checked="checked" />
+                                    <input readonly="readonly" name="genre_eleve" class="form-check-input" type="radio" asp-for="genre_eleve" value="F" checked="checked" />
                                     break;
                             }
                             <label for="genre_eleve" class="error" style="display:none;">Vous devez faire un choix.</label>
                         </fieldset>
                     </div>
-                    <br><span asp-validation-for="genre_eleve" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="note_evaluation" class="control-label"></label>
-                    <input asp-for="note_evaluation" class="form-control" />
-                    <span asp-validation-for="note_evaluation" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="note_evaluation" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="date_evaluation" class="control-label"></label>
-                    <input asp-for="date_evaluation" class="form-control" />
-                    <span asp-validation-for="date_evaluation" class="text-danger"></span>
+                    <input readonly="readonly" asp-for="date_evaluation" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label asp-for="commentaires_evaluation" class="control-label"></label>
-                    <select name="commentaires_evaluation" asp-for="commentaires_evaluation" asp-items="evaluationlist"></select>
-                    <span asp-validation-for="commentaires_evaluation" class="text-danger"></span>
+                    <select readonly="readonly" name="commentaires_evaluation" asp-for="commentaires_evaluation" asp-items="evaluationlist"></select>
                 </div>
             </div>
         </div><br />
         <div class="form-group">
-            <input type="submit" value="Modifier" class="btn btn-danger" />
+            <input type="submit" value="Supprimer" class="btn btn-danger" asp-route-num_evaluation="@Model.num_evaluation" asp-route-evaluation="@Model"/>
             <a asp-action="Index" class="btn btn-success">Annuler</a>
         </div>
     </form>
 </div>
-@section Scripts
-    {
-    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-    <script type="text/javascript" src="~/js/Create.js"></script>
-}
-

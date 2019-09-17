@@ -4,7 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+/**
+ * 
+ * Yan Ha Routhier-Chevrier
+ * 1473192 - laboratoire 1
+ * 
+ * Class qui donne la possibilité 
+ * de s'en servir dans le routage 
+ * 
+ * */
 namespace Laboratoire1.Models
 {
     public class UserMessage : IRouteConstraint
