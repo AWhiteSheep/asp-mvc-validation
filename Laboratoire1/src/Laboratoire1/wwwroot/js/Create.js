@@ -8,7 +8,13 @@
 // ajout des regexp pour text et gender
 jQuery.validator.addMethod("textonly", function (value, element) {
     return /^([A-Z])[a-zA-Z \-]+$/.test(value);
-}, 'S\'il vous plaît veuillez rentrer seulement que des lettres et espaces.');
+}, 'Première lettre doit êter en majuscule et lettre seulement accepté.');
+
+jQuery.validator.addMethod("textonly", function (value, element) {
+    return /^[a-zA-Z \-]+$/.test(value);
+}, 'Que des lettres et espaces svp.');
+
+
 
 jQuery.validator.addMethod("genderonly", function (value, element) {
     return /^H|h|f|F$/.test(value);

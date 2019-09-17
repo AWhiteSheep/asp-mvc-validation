@@ -30,14 +30,8 @@ namespace Laboratoire1.Models
         }
 
         public static void Modifier(Evaluation e) {
-            ListeEvaluations.ForEach(_e =>
-            {
-                if (_e.num_evaluation == e.num_evaluation)
-                {
-                    _e = e;
-                    return;
-                }
-            });
+            Supprimer(e.num_evaluation);
+            Ajouter(e);
         }
     }
 }

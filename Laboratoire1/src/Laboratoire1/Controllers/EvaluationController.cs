@@ -82,7 +82,34 @@ namespace Laboratoire1.Controllers
         [HttpPost]
         public RedirectToActionResult Update(IFormCollection form)
         {
-            return RedirectToAction(nameof(List));
+            if (ModelState.IsValid)
+            {
+                Evaluation evaluation = new Evaluation() {
+                    num_evaluation = int.Parse(form["num_evaluation"]),
+                    nom_eleve = form["nom_eleve"],
+                    prenom_eleve = form["prenom_eleve"],
+                    telephone_eleve = form["telephone_eleve"],
+                    courriel_eleve = form["courriel_eleve"],
+                    genre_eleve = char.Parse(form["genre_eleve"]),
+                    note_evaluation = form["note_evaluation"],
+                    date_evaluation = DateTime.Parse(form["date_evaluation"]),
+                    commentaires_evaluation = form["commentaires_evaluation"]
+                };
+                Evaluations.Modifier(evaluation);
+                return RedirectToAction(nameof(List),
+                    new UserMessage()
+                    {
+                        m_message = new string("Évaluation de " + evaluation.prenom_eleve + " modifiée avec succès!"),
+                        type = UserMessage._type.SUCCESS
+                    });
+            }
+
+            return RedirectToAction(nameof(Create),
+                new UserMessage()
+                {
+                    m_message = new string("L'évaluation n'a pas pu être modifiée."),
+                    type = UserMessage._type.ERROR
+                });
         }
 
         [HttpGet]
