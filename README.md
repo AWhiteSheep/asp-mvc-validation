@@ -6,4 +6,4 @@ You will find 2 different controller, in wich you will find the EvaluationContro
 
 Quick look of the Homme Page.
 ** version is in French.
-[Home page view](/Laboratoire1/docs/home.png)
+![Home page view](https://github.com/AWhiteSheep/asp-mvc-validation/blob/master/Laboratoire1/docs/home.PNG)
