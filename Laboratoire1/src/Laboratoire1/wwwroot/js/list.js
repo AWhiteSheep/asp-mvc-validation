@@ -37,7 +37,7 @@ function etudiantShow(e, i) {
     $("#modal-num").text(title);
     $("#modal-nom").text(nom);
     $("#modal-prenom").text(prenom);
-    $("#modal-telephone").text(telephone);
+    $("#modal-evaluation-telephone").text(telephone);
     $("#modal-courriel").text(courriel);
     $("#modal-genre").text(genre);
     $("#modal-note").text(note);

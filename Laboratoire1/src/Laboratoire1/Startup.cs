@@ -67,14 +67,7 @@ namespace Laboratoire1
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller}/{action}/{type?}/{m_message?}",
-                    defaults: new { Controller = "Evaluation", action = "Accueil" },
-                    constraints: new { type = new StringRouteConstraint(""), m_message = new StringRouteConstraint("") });
-                routes.MapRoute(
-                    name: "ids",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { Controller = "Evaluation", action = "Accueil" },
-                    constraints: new { id = new IntRouteConstraint() });
+                    template: "{controller=Evaluation}/{action=Index}/{id?}/{type?}/{m_message?}");
             });
         }
     }

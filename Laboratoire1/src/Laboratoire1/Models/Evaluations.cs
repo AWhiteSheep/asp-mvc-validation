@@ -17,12 +17,12 @@ namespace Laboratoire1.Models
                 num_evaluation = 548,
                 nom_eleve = "Routhier-Chevrier",
                 prenom_eleve = "Yan Ha",
-                telephone_eleve = "819-265-5587",
+                telephone_eleve = "8192655587",
                 courriel_eleve = "yan@gmail.com",
                 genre_eleve = 'M',
-                note_evaluation = "100%",
+                note_evaluation = "100",
                 date_evaluation = new DateTime(2019,09,12),
-                commentaires_evaluation = "Tès belle évaluation."
+                commentaires_evaluation = "Tès beau"
             }
         };
 

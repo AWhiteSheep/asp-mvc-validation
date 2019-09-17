@@ -158,8 +158,8 @@ footer > hr {
 }
 .list-page-widget {
     position:absolute;
-    bottom: 33pt;
-    left:30pt;
+    bottom: 15vh;
+    left:15vh;
     background-color: rgba(252,145,58,.62);
     border-bottom: 1px solid rgb(252,145,58);
 }

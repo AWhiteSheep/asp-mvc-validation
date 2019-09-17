@@ -94,7 +94,7 @@
         <br>
         <div class="form-group" style="text-align:center">
             <button type="submit" class="btn btn-success p-2">Enregistrer</button>
-            <a class="btn btn-danger p-2" style="color:white;" data-toggle="modal" data-target="#modalCreate">Annuler</a>
+            <a class="btn btn-warning p-2" style="color:white;" data-toggle="modal" data-target="#modalCreate">Annuler</a>
         </div>
     </form>
 </div>
@@ -109,7 +109,7 @@
                 </button>
             </div>
             <div class="modal-footer">
-                <a asp-controller="Evaluation" asp-action="List" class="btn btn-danger">Je souhaite annuler</a>
+                <a onclick="clearForm();" class="btn btn-danger" data-dismiss="modal" style="color:white;">Je souhaite annuler</a>
                 <button type="button" class="btn btn-success" data-dismiss="modal">Je souhaite poursuivre</button>
             </div>
         </div>

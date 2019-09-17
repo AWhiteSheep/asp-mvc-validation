@@ -32,7 +32,8 @@ namespace Laboratoire1.Controllers
             return View(Evaluations.ListeEvaluations);
         }
 
-        [HttpGet("/Evaluation/List/{type}/{m_message}")]
+        [HttpGet]
+        [Route("/Evaluation/List/{type}/{m_message}")]
         // deux possibilités nous est offert pour créer la view, ici il y a un message.
         public IActionResult List(string type, string m_message)
         {
@@ -47,7 +48,8 @@ namespace Laboratoire1.Controllers
             return View();
         }
 
-        [HttpGet("/Evaluation/Create/{type}/{m_message}")]
+        [HttpGet]
+        [Route("/Evaluation/Create/{type}/{m_message}")]
         // deux possibilités nous est offert pour créer la view, ici il y a un message.
         public IActionResult Create(string type, string m_message)
         {

@@ -19,12 +19,12 @@ namespace Laboratoire1.Models
         public int num_evaluation { get; set; }
         [Required]
         [Display(Name = "Nom de l'étudiant")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$", ErrorMessage = "Le prénom  doit commencer par une majuscule.")]
+        [RegularExpression(@"^[A-Z][a-zA-Z \s-]+$", ErrorMessage = "Le prénom  doit commencer par une majuscule.")]
         [StringLength(15, MinimumLength = 2, ErrorMessage = "Le champ doit être au minimum {0} charactères.")]
         public string nom_eleve { get; set; }
         [Required]
         [Display(Name = "Prénom")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$", ErrorMessage = "Le prénom  doit commencer par une majuscule.")]
+        [RegularExpression(@"^[A-Z][a-zA-Z \s-]+$", ErrorMessage = "Le prénom  doit commencer par une majuscule.")]
         public string prenom_eleve { get; set; }
         [Required]
         [Display(Name = "Téléphone étudiant")]
@@ -47,7 +47,6 @@ namespace Laboratoire1.Models
         public DateTime date_evaluation { get; set; }
         [Required]
         [Display(Name = "Commentaire")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-\.,-_]*$")]
         public string commentaires_evaluation { get; set; }
 
     }

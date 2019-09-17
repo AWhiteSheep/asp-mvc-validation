@@ -3,20 +3,28 @@
  * Yan Ha Routhier-Chevrier
  * contenu javascript pour la page create
  * 
+ * Voici ma référence vers les tests expression régulière https://regexr.com/
+ * 
  * */
 
 // ajout des regexp pour text et gender
-jQuery.validator.addMethod("textonly", function (value, element) {
+jQuery.validator.addMethod("firstUpcaseTextOnly", function (value, element) {
     return this.optional(element) || /^[A-Z][a-zA-Z \s-]+$/.test(value);
 }, 'Première lettre doit êter en majuscule et lettre seulement accepté.');
+
+jQuery.validator.addMethod("textonly", function (value, element) {
+    return this.optional(element) || /^[a-zA-Z \s-]+$/.test(value);
+}, 'Que des lettres seront acceptés.');
 
 
 jQuery.validator.addMethod("genderonly", function (value, element) {
     return /^H|h|f|F$/.test(value);
 }, 'La valeur ne peut être correct.');
 
+
+
 // valide le formulaire
-$("#myform").validate({
+var validator = $("#myform").validate({
     rules: {
         num_evaluation: {
             required: true,
@@ -25,11 +33,11 @@ $("#myform").validate({
         },
         nom_eleve: {
             required: true,
-            textonly: true
+            firstUpcaseTextOnly: true
         },
         prenom_eleve: {
             required: true,
-            textonly: true
+            firstUpcaseTextOnly: true
         },
         telephone_eleve: {
             required: true,
@@ -100,3 +108,8 @@ $("#myform").validate({
         }
     }
 });
+
+function clearForm() {
+    validator.resetForm();
+    $("form input[type=Text]").val("");
+}

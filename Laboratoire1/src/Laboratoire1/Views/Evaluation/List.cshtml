@@ -64,7 +64,7 @@
 </div>
 <!-- lien pour créer une évaluation -->
 <div class="list-page-widget">
-    <a asp-action="Create"><span class='material-icons' style="color: rgba(0, 0, 0, 0.54);">add_circle</span>Ajouter  un étudiant</a>
+    <a asp-action="Create">Ajouter  un étudiant<span class='material-icons' style="color: rgba(0, 0, 0, 0.54); padding-left:5pt; color:rgba(98,0,238,.9)">add_circle</span></a>
 </div>
 <div id="modal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -86,7 +86,7 @@
                 <Rowcolmin asp-id="modal-prenom">
                     <label asp-for="First().prenom_eleve"></label>
                 </Rowcolmin>
-                <Rowcolmin asp-id="modal-tel">
+                <Rowcolmin asp-id="modal-evaluation-telephone">
                     <label asp-for="First().telephone_eleve"></label>
                 </Rowcolmin>
                 <Rowcolmin asp-id="modal-courriel">
