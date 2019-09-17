@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Send";
+}
+
+
+<div class="container white-wrapper pb-5">
+    <div class="flex-wrapper p-50-0">
+        <div class="superior-wrapper m-auto w230-h10 orange-72">
+            <h1>Send.</h1>
+        </div>
+    </div>
+    <form id="email" asp-controller="Mail" asp-action="Send" method="post">
+        <div class="flex-wrapper">
+            <div class="superior-wrapper m-auto rect-md dark-blue-background scroll">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">De : </label>
+                    <input type="email" name="from" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Pour : </label>
+                    <input type="text" name="for" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Subject : </label>
+                    <input type="text" name="sujet" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Contenu : </label>
+                    <textarea name="contenu" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group" style="text-align:center">
+            <button type="submit" class="btn btn-success p-2">Envoyer</button>
+            <a id="annuler" class="btn btn-danger p-2">Annuler</a>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts
+    {
+    <script type="text/javascript" src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript">
+        // valide le formulaire
+        $("#email").validate({
+            rules: {
+                from: {
+                    required: true,
+                    email: true
+                },
+                for: {
+                    required: true
+                },
+                sujet: {
+                    required: true
+                }
+            },
+            messages: {
+                from: {
+                    required: "Ce champ est obligatoire.",
+                    textonly: "Ceci doit être un email."
+                },
+                for: {
+                    required: "Le prénom est obligatoire."
+                },
+                sujet: {
+                    required: "Le téléphone est obligatoire."
+                }
+            }
+        });
+
+        $("#annuler").click(function () {
+            $("#email").validate().resetForm();
+        });
+    </script>
+}
