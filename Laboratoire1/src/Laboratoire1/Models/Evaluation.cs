@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Laboratoire1.Attributs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Laboratoire1.Models
     {
         [Required]
         [Display(Name = "#Évaluation")]
-        [RegularExpression(@"^[0-9]+$")]
+        [Complex(ErrorMessage = "Le champ {0} est invalide.")]
         public int num_evaluation { get; set; }
         [Required]
         [Display(Name = "Nom de l'étudiant")]

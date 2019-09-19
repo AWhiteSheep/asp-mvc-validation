@@ -23,14 +23,10 @@ jQuery.validator.addMethod("genderonly", function (value, element) {
 
 
 
+
 // valide le formulaire
-var validator = $("#myform").validate({
+var validateur = $("#myform").validate({
     rules: {
-        num_evaluation: {
-            required: true,
-            min:0,
-            number: true
-        },
         nom_eleve: {
             required: true,
             firstUpcaseTextOnly: true
@@ -67,11 +63,6 @@ var validator = $("#myform").validate({
         }
     },
     messages: {
-        num_evaluation: {
-            required: "Le numéro est obligatoire.",
-            min: "Ce champ doit être plug grand ou égale 0.",
-            number: "Ce champ doit être un numéro."
-        },
         nom_eleve: {
             required: "Le nom est obligatoire.",
             textonly: "Ce champ doit être du text et commencer par une majuscule."
@@ -110,6 +101,7 @@ var validator = $("#myform").validate({
 });
 
 function clearForm() {
-    validator.resetForm();
+    validateur.resetForm();
     $("form input[type=Text]").val("");
 }
+
